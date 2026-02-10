@@ -1,0 +1,35 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';"
+        },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/fedramp.html", "destination": "/services/fedramp-consulting", "permanent": true },
+    { "source": "/fisma.html", "destination": "/services/fisma-rmf", "permanent": true },
+    { "source": "/cmmc.html", "destination": "/services/cmmc-compliance", "permanent": true },
+    { "source": "/hipaa.html", "destination": "/services/hipaa-compliance", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/pages/fedramp-specialist.html", "destination": "/services/fedramp-consulting", "permanent": true },
+    { "source": "/pages/fedramp-low.html", "destination": "/services/fedramp-consulting", "permanent": true },
+    { "source": "/pages/fedramp-moderate.html", "destination": "/services/fedramp-consulting", "permanent": true },
+    { "source": "/pages/fedramp-high.html", "destination": "/services/fedramp-consulting", "permanent": true },
+    { "source": "/pages/isso-consultant.html", "destination": "/services/isso-consulting", "permanent": true },
+    { "source": "/pages/senior-isso-rmf.html", "destination": "/services/isso-consulting", "permanent": true },
+    { "source": "/pages/security-architect.html", "destination": "/services/security-architecture", "permanent": true }
+  ]
+}
