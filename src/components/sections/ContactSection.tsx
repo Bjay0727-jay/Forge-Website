@@ -21,7 +21,7 @@ export default function ContactSection() {
               </a>
               <div className="flex items-center gap-4 text-gray-600">
                 <div className="w-11 h-11 rounded-xl bg-teal-500/15 flex items-center justify-center shrink-0"><MapPin className="w-5 h-5 text-teal-500" /></div>
-                <div><div className="text-xs text-gray-400 font-medium uppercase tracking-wider">Location</div><div className="text-sm font-medium">{COMPANY.location}</div></div>
+                <div><div className="text-xs text-gray-400 font-medium uppercase tracking-wider">Location</div><div className="text-sm font-medium">{COMPANY.address}<br />{COMPANY.city}</div></div>
               </div>
             </div>
           </div>

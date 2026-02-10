@@ -6,8 +6,10 @@ export const COMPANY = {
   tagline: 'Security Compliance & Application Development',
   description: 'Security compliance consulting and secure application development for organizations that can\'t afford to get security wrong.',
   email: 'info@forgecyberdefense.com',
-  phone: '(469) 505-1331',
-  location: 'North Texas (DFW Metro)',
+  phone: '(469) 404-3899',
+  address: '7950 Legacy Dr Suite 400',
+  city: 'Plano, TX 75024',
+  location: 'Plano, TX (DFW Metro)',
   status: 'Veteran-Owned',
   url: 'https://forgecyberdefense.com',
 };

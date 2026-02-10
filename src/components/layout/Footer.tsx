@@ -15,9 +15,12 @@ export default function Footer() {
               <Shield className="w-4 h-4 text-teal-500" />
               <span className="text-xs font-semibold uppercase tracking-wider text-teal-400">{COMPANY.status}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gray-600" />
-              <span className="text-xs text-gray-600">{COMPANY.location}</span>
+            <div className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+              <div className="text-xs text-gray-600">
+                <p>{COMPANY.address}</p>
+                <p>{COMPANY.city}</p>
+              </div>
             </div>
           </div>
           <div>
