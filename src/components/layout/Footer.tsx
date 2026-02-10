@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-1">
-            <Image src="/logos/forge-original-128px.png" alt="Forge Cyber Defense" width={180} height={48} className="h-12 w-auto mb-5" />
+            <Image src="/logos/forge-original-128px.png" alt="Forge Cyber Defense" width={200} height={56} className="h-14 w-auto mb-5" />
             <p className="text-sm leading-relaxed text-gray-500 mb-5">{COMPANY.description}</p>
             <div className="flex items-center gap-2 mb-3">
               <Shield className="w-4 h-4 text-teal-500" />
