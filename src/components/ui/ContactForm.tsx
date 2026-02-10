@@ -6,7 +6,7 @@ import Button from './Button';
 
 // Formspree endpoint - replace YOUR_FORM_ID with your actual Formspree form ID
 // Get your form ID at https://formspree.io (free tier: 50 submissions/month)
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqedaoko';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
