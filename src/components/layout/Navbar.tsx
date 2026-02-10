@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-navy-700/[0.98] shadow-[0_4px_30px_rgba(0,0,0,0.3)]' : 'bg-navy-700/95'} backdrop-blur-xl border-b border-white/[0.08]`} aria-label="Main navigation">
-        <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[72px]">
+        <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[110px]">
           <Link href="/" className="flex items-center no-underline" aria-label="Forge Cyber Defense - Home">
             <Image src="/logos/forge-original-128px.png" alt="Forge Cyber Defense" width={320} height={96} priority className="h-24 w-auto" />
           </Link>
@@ -74,7 +74,7 @@ export default function Navbar() {
         </div>
       </nav>
       {isMobileOpen && (
-        <div className="fixed inset-0 z-40 bg-navy-900/95 backdrop-blur-xl pt-[72px] overflow-y-auto lg:hidden">
+        <div className="fixed inset-0 z-40 bg-navy-900/95 backdrop-blur-xl pt-[110px] overflow-y-auto lg:hidden">
           <div className="px-6 py-8 space-y-2">
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
