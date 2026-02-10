@@ -17,10 +17,10 @@ const resources = [
   {
     id: 'fedramp-checklist',
     title: 'FedRAMP Readiness Checklist',
-    description: 'A comprehensive 50-point checklist to assess your organization\'s readiness for FedRAMP authorization. Covers documentation, technical controls, and process requirements.',
+    description: 'A comprehensive checklist to assess your organization\'s readiness for FedRAMP authorization. Covers documentation, technical controls, 3PAO engagement, and continuous monitoring requirements.',
     icon: ClipboardDocumentListIcon,
     category: 'Checklist',
-    pages: '12 pages',
+    pages: '2 pages',
     format: 'PDF',
     color: 'from-teal-500 to-cyan-500',
     bgColor: 'bg-teal-500',
@@ -28,25 +28,25 @@ const resources = [
     fileName: 'FedRAMP-Readiness-Checklist-Forge.pdf'
   },
   {
-    id: 'cmmc-gap-template',
-    title: 'CMMC 2.0 Gap Assessment Template',
-    description: 'Self-assessment template covering all 110 NIST SP 800-171 controls required for CMMC Level 2. Includes scoring guidance and remediation planning worksheets.',
+    id: 'cmmc-template',
+    title: 'CMMC 2.0 Self-Assessment Template',
+    description: 'Self-assessment template covering all 110 NIST SP 800-171 controls required for CMMC Level 2. Includes scoring table by domain and remediation planning guidance.',
     icon: DocumentCheckIcon,
     category: 'Template',
-    pages: '24 pages',
+    pages: '2 pages',
     format: 'PDF',
     color: 'from-blue-500 to-indigo-500',
     bgColor: 'bg-blue-500',
     lightBg: 'bg-blue-50',
-    fileName: 'CMMC-Gap-Assessment-Template-Forge.pdf'
+    fileName: 'CMMC-2-Self-Assessment-Template-Forge.pdf'
   },
   {
     id: 'fisma-checklist',
     title: 'FISMA Readiness Checklist',
-    description: 'Complete FISMA compliance checklist aligned with NIST Risk Management Framework. Covers all RMF steps from categorization through continuous monitoring.',
+    description: 'Complete FISMA compliance checklist aligned with NIST Risk Management Framework. Covers all 6 RMF steps from categorization through continuous monitoring.',
     icon: BuildingOffice2Icon,
     category: 'Checklist',
-    pages: '16 pages',
+    pages: '2 pages',
     format: 'PDF',
     color: 'from-emerald-500 to-green-500',
     bgColor: 'bg-emerald-500',
@@ -54,17 +54,17 @@ const resources = [
     fileName: 'FISMA-Readiness-Checklist-Forge.pdf'
   },
   {
-    id: 'compliance-timeline',
-    title: 'Federal Compliance Timeline Guide',
-    description: 'Realistic timeline expectations for FedRAMP, CMMC, and FISMA authorizations. Includes resource planning estimates and milestone definitions.',
+    id: 'cost-calculator',
+    title: 'Compliance Cost Calculator',
+    description: 'Estimate your compliance investment with cost ranges for FedRAMP, CMMC, SOC 2, HIPAA, and more. Includes ROI considerations and budget planning worksheets.',
     icon: ShieldCheckIcon,
-    category: 'Guide',
-    pages: '8 pages',
+    category: 'Calculator',
+    pages: '2 pages',
     format: 'PDF',
     color: 'from-purple-500 to-pink-500',
     bgColor: 'bg-purple-500',
     lightBg: 'bg-purple-50',
-    fileName: 'Federal-Compliance-Timeline-Guide-Forge.pdf'
+    fileName: 'Compliance-Cost-Calculator-Forge.pdf'
   }
 ];
 
@@ -118,10 +118,8 @@ function DownloadModal({ resource, onClose }: DownloadModalProps) {
   };
 
   const handleDownload = () => {
-    // In production, this would download the actual PDF
-    // For demo, we'll create a placeholder download
     const link = document.createElement('a');
-    link.href = `/resources/${resource.fileName}`;
+    link.href = `/downloads/${resource.fileName}`;
     link.download = resource.fileName;
     link.click();
     onClose();
