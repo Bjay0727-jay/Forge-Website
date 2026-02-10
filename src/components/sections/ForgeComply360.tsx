@@ -268,27 +268,74 @@ export default function ForgeComply360() {
         </div>
       </div>
 
-      {/* Video Modal Placeholder */}
+      {/* Video Modal */}
       {isVideoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
             onClick={() => setIsVideoModalOpen(false)}
           />
-          <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-4xl w-full">
+          <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden max-w-4xl w-full border border-slate-700">
             <button
               onClick={() => setIsVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 bg-slate-800 rounded-full text-white hover:bg-slate-700 transition-colors"
+              className="absolute top-4 right-4 z-10 p-2 bg-slate-800/80 rounded-full text-white hover:bg-slate-700 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="aspect-video bg-slate-800 flex items-center justify-center">
-              <div className="text-center">
-                <PlayCircleIcon className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                <p className="text-slate-400">Demo video coming soon</p>
-                <p className="text-slate-500 text-sm mt-2">Contact us for a live demonstration</p>
+            <div className="aspect-video bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+              {/* Animated Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
+              </div>
+
+              <div className="relative z-10 text-center px-8">
+                {/* Logo */}
+                <div className="mb-6">
+                  <h3 className="text-3xl font-bold text-white mb-2">
+                    ForgeComply 360<sup className="text-sm">™</sup>
+                  </h3>
+                  <p className="text-teal-400 font-medium">Product Overview</p>
+                </div>
+
+                {/* Play Button */}
+                <div className="mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mx-auto shadow-lg shadow-teal-500/30 animate-pulse">
+                    <PlayCircleIcon className="w-12 h-12 text-white ml-1" />
+                  </div>
+                </div>
+
+                {/* Status Message */}
+                <div className="bg-slate-800/50 rounded-xl p-6 max-w-md mx-auto border border-slate-700">
+                  <p className="text-white font-semibold mb-2">Demo Video Coming Soon</p>
+                  <p className="text-slate-400 text-sm mb-4">
+                    Our product video is currently in production. In the meantime,
+                    schedule a live demonstration with our team.
+                  </p>
+                  <a
+                    href="/contact?product=forgecomply360"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-teal-500/25 transition-all duration-300 hover:scale-105"
+                  >
+                    Schedule Live Demo
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Feature Highlights */}
+                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                  <span className="px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm">
+                    AI-Powered Mapping
+                  </span>
+                  <span className="px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm">
+                    700+ Controls
+                  </span>
+                  <span className="px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm">
+                    25+ Frameworks
+                  </span>
+                </div>
               </div>
             </div>
           </div>
