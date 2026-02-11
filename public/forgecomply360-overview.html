@@ -1421,10 +1421,14 @@
         currentScene++;
         sceneStartTime = Date.now();
         updateScene();
+        playVoiceover(); // Play audio for new scene
       } else {
         isPlaying = false;
         document.getElementById('playBtn').textContent = '▶ Play';
         document.getElementById('audioInd').classList.remove('on');
+        if (currentAudio) {
+          currentAudio.pause();
+        }
         return;
       }
     }
@@ -1432,15 +1436,33 @@
     animationFrameId = requestAnimationFrame(animate);
   }
 
+  // Audio files for real voiceover
+  const audioFiles = [
+    '/audio/vo-01.mp3',
+    '/audio/vo-02.mp3',
+    '/audio/vo-03.mp3',
+    '/audio/vo-04.mp3',
+    '/audio/vo-05.mp3',
+    '/audio/vo-06.mp3',
+    '/audio/vo-07.mp3',
+    '/audio/vo-08.mp3',
+    '/audio/vo-09.mp3',
+    '/audio/vo-10.mp3'
+  ];
+
+  let currentAudio = null;
+
   document.getElementById('playBtn').addEventListener('click', () => {
     isPlaying = !isPlaying;
     document.getElementById('playBtn').textContent = isPlaying ? '⏸ Playing' : '▶ Play';
     if (isPlaying) {
       sceneStartTime = Date.now();
-      speakVoiceover();
+      playVoiceover();
       animate();
     } else {
-      window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+      }
     }
   });
 
@@ -1449,7 +1471,9 @@
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     document.getElementById('playBtn').textContent = '▶ Play';
     document.getElementById('audioInd').classList.remove('on');
-    window.speechSynthesis.cancel();
+    if (currentAudio) {
+      currentAudio.pause();
+    }
   });
 
   document.getElementById('resetBtn').addEventListener('click', () => {
@@ -1460,12 +1484,46 @@
     document.getElementById('progBar').style.width = '0%';
     document.getElementById('playBtn').textContent = '▶ Play';
     document.getElementById('audioInd').classList.remove('on');
-    window.speechSynthesis.cancel();
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio = null;
+    }
     updateScene();
     updateProgress();
   });
 
-  function speakVoiceover() {
+  function playVoiceover() {
+    if (!isPlaying) return;
+
+    // Stop any currently playing audio
+    if (currentAudio) {
+      currentAudio.pause();
+    }
+
+    // Create new audio element for current scene
+    currentAudio = new Audio(audioFiles[currentScene]);
+    currentAudio.volume = 0.95;
+
+    currentAudio.onended = () => {
+      if (isPlaying && currentScene < scenes.length - 1) {
+        // Audio ended, wait for scene transition
+      }
+    };
+
+    currentAudio.onerror = () => {
+      // If audio file not found, fall back to text-to-speech
+      console.log('Audio file not found, using text-to-speech fallback');
+      speakVoiceoverFallback();
+    };
+
+    currentAudio.play().catch(() => {
+      // If audio fails to play, use text-to-speech fallback
+      speakVoiceoverFallback();
+    });
+  }
+
+  // Fallback to browser text-to-speech if audio files not available
+  function speakVoiceoverFallback() {
     if (!isPlaying) return;
 
     const utterance = new SpeechSynthesisUtterance(scenes[currentScene].vo);
@@ -1473,34 +1531,17 @@
     utterance.pitch = 0.85;
     utterance.volume = 0.95;
 
-    // Get all available voices
     const voices = window.speechSynthesis.getVoices();
     let preferredVoice = null;
 
-    // Prioritize high-quality male voices
-    const qualityVoices = voices.filter(v => {
+    const maleVoices = voices.filter(v => {
       const name = v.name.toLowerCase();
-      return (name.includes('google') || name.includes('neural') || name.includes('premium') ||
-              name.includes('natural') || name.includes('david') || name.includes('james') ||
-              name.includes('daniel') || name.includes('mark') || name.includes('guy')) &&
-             (name.includes('male') || name.includes('david') || name.includes('james') ||
-              name.includes('daniel') || name.includes('mark') || name.includes('guy')) &&
+      return (name.includes('david') || name.includes('james') || name.includes('daniel') ||
+              name.includes('mark') || name.includes('guy') || name.includes('alex')) &&
              v.lang.includes('en');
     });
 
-    if (qualityVoices.length > 0) {
-      preferredVoice = qualityVoices[0];
-    } else {
-      // Fallback to any male voice
-      const maleVoices = voices.filter(v => {
-        const name = v.name.toLowerCase();
-        return (name.includes('male') || name.includes('david') || name.includes('james') ||
-                name.includes('daniel') || name.includes('mark') || name.includes('guy') ||
-                name.includes('alex') || name.includes('tom') || name.includes('fred')) &&
-               v.lang.includes('en');
-      });
-      preferredVoice = maleVoices.length > 0 ? maleVoices[0] : voices[0];
-    }
+    preferredVoice = maleVoices.length > 0 ? maleVoices[0] : voices[0];
 
     if (preferredVoice) {
       utterance.voice = preferredVoice;
@@ -1508,12 +1549,8 @@
 
     utterance.onend = () => {
       if (isPlaying && currentScene < scenes.length - 1) {
-        setTimeout(speakVoiceover, 500);
+        setTimeout(speakVoiceoverFallback, 500);
       }
-    };
-
-    utterance.onerror = () => {
-      // Continue silently on error
     };
 
     window.speechSynthesis.cancel();
