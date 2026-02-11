@@ -244,27 +244,13 @@ export default function ForgeComply360() {
           <p className="text-slate-400 mb-4">
             Ready to transform your compliance program?
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact?product=forgecomply360"
-              className="inline-flex items-center gap-2 text-teal-400 font-semibold hover:text-teal-300 transition-colors"
-            >
-              Schedule a personalized demo
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
-            <span className="text-slate-600 hidden sm:inline">|</span>
-            <a
-              href="https://forgecomply360.pages.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-slate-400 font-medium hover:text-white transition-colors"
-            >
-              Visit ForgeComply 360
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
+          <Link
+            href="/contact?product=forgecomply360"
+            className="inline-flex items-center gap-2 text-teal-400 font-semibold hover:text-teal-300 transition-colors"
+          >
+            Schedule a personalized demo
+            <ArrowRightIcon className="w-4 h-4" />
+          </Link>
         </div>
       </div>
 
