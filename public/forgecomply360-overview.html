@@ -724,6 +724,240 @@
     opacity: 1 !important;
     transform: scale(1) !important;
   }
+
+  /* === CONTROLS UI === */
+  .controls {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .viewport:hover .controls,
+  .controls:focus-within {
+    opacity: 1;
+  }
+  .controls.always-visible {
+    opacity: 1;
+  }
+
+  /* Progress dots */
+  .progress-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .progress-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: all 0.3s ease;
+  }
+  .progress-dot.active {
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+  }
+  .progress-dot.completed {
+    background: rgba(6,182,212,0.5);
+  }
+
+  /* Control buttons */
+  .ctrl-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-size: 14px;
+  }
+  .ctrl-btn:hover {
+    background: rgba(6,182,212,0.3);
+    transform: scale(1.1);
+  }
+  .ctrl-btn:focus {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+  }
+  .ctrl-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  /* Mute button */
+  .mute-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 20;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    opacity: 0;
+  }
+  .viewport:hover .mute-btn {
+    opacity: 1;
+  }
+  .mute-btn:hover {
+    background: rgba(6,182,212,0.3);
+  }
+  .mute-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  /* Replay overlay */
+  .replay-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 15;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26,42,74,0.9);
+    backdrop-filter: blur(4px);
+  }
+  .replay-overlay.visible {
+    display: flex;
+  }
+  .replay-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1.5px solid var(--cyan);
+    background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, rgba(59,130,246,0.1) 100%);
+    color: var(--white);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .replay-btn:hover {
+    background: linear-gradient(135deg, rgba(6,182,212,0.25) 0%, rgba(59,130,246,0.2) 100%);
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(6,182,212,0.2);
+  }
+  .replay-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  .replay-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 16px;
+  }
+
+  /* Loading spinner */
+  .loading-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-deep);
+  }
+  .loading-overlay.hidden {
+    display: none;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(6,182,212,0.2);
+    border-top-color: var(--cyan);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Pause indicator */
+  .pause-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 18;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .pause-indicator.visible {
+    display: flex;
+    opacity: 1;
+  }
+  .pause-indicator svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--white);
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 640px) {
+    .controls {
+      bottom: 8px;
+      padding: 6px 12px;
+      gap: 10px;
+    }
+    .progress-dot {
+      width: 5px;
+      height: 5px;
+    }
+    .ctrl-btn {
+      width: 28px;
+      height: 28px;
+    }
+    .mute-btn {
+      width: 32px;
+      height: 32px;
+      top: 8px;
+      right: 8px;
+    }
+    .replay-btn {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  }
 </style>
  </head>
  <body>
@@ -735,6 +969,46 @@
    </defs>
   </svg>
   <div class="viewport" id="vp">
+   <!-- Loading overlay -->
+   <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+   </div>
+
+   <!-- Mute button -->
+   <button class="mute-btn" id="muteBtn" title="Mute/Unmute (M)" aria-label="Mute audio">
+    <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    <svg id="muteIcon" style="display:none" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+   </button>
+
+   <!-- Pause indicator -->
+   <div class="pause-indicator" id="pauseIndicator">
+    <svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+   </div>
+
+   <!-- Replay overlay -->
+   <div class="replay-overlay" id="replayOverlay">
+    <button class="replay-btn" id="replayBtn">
+     <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+     Watch Again
+    </button>
+    <div class="replay-text">Press Space or click to replay</div>
+   </div>
+
+   <!-- Bottom controls -->
+   <div class="controls" id="controls">
+    <button class="ctrl-btn" id="prevBtn" title="Previous scene (Left arrow)" aria-label="Previous scene">
+     <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="ctrl-btn" id="playPauseBtn" title="Play/Pause (Space)" aria-label="Play or pause">
+     <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+     <svg id="pauseIcon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <button class="ctrl-btn" id="nextBtn" title="Next scene (Right arrow)" aria-label="Next scene">
+     <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+    <div class="progress-dots" id="progressDots"></div>
+   </div>
+
    <div class="amb-grid"></div>
    <div class="amb-vignette"></div>
    <div class="amb-particles" id="ptcls"></div>
@@ -1188,11 +1462,22 @@
     '/audio/vo-10.mp3'
   ];
 
+  // Preloaded audio cache
+  const audioCache = {};
+
   let sceneElements = null;
   let currentScene = 0;
   let isPlaying = false;
+  let isPaused = false;
+  let isMuted = false;
   let sceneStartTime = 0;
+  let pausedElapsed = 0;
   let currentAudio = null;
+
+  // DOM elements
+  let playIcon, pauseIcon, volumeIcon, muteIcon;
+  let playPauseBtn, muteBtn, prevBtn, nextBtn, replayBtn;
+  let progressDots, replayOverlay, pauseIndicator, loadingOverlay, controls;
 
   function updateDashboard(framework) {
     const data = frameworkData[framework];
@@ -1217,24 +1502,190 @@
     if (index >= 0 && index < sceneElements.length) {
       sceneElements[index].classList.add('live');
     }
+    updateProgressDots();
+  }
+
+  function updateProgressDots() {
+    if (!progressDots) return;
+    const dots = progressDots.querySelectorAll('.progress-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.remove('active', 'completed');
+      if (i === currentScene) {
+        dot.classList.add('active');
+      } else if (i < currentScene) {
+        dot.classList.add('completed');
+      }
+    });
+  }
+
+  function createProgressDots() {
+    if (!progressDots || !sceneElements) return;
+    progressDots.innerHTML = '';
+    for (let i = 0; i < sceneElements.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'progress-dot';
+      if (i === 0) dot.classList.add('active');
+      progressDots.appendChild(dot);
+    }
+  }
+
+  function preloadNextAudio() {
+    const nextScene = currentScene + 1;
+    if (nextScene < audioFiles.length && audioFiles[nextScene] && !audioCache[nextScene]) {
+      const audio = new Audio(audioFiles[nextScene]);
+      audio.preload = 'auto';
+      audioCache[nextScene] = audio;
+    }
   }
 
   function playVoiceover() {
-    if (!isPlaying) return;
     if (currentAudio) {
       currentAudio.pause();
       currentAudio = null;
     }
-    if (!audioFiles[currentScene]) return;
-    currentAudio = new Audio(audioFiles[currentScene]);
+    if (!audioFiles[currentScene] || isMuted) return;
+
+    // Use cached audio if available
+    if (audioCache[currentScene]) {
+      currentAudio = audioCache[currentScene];
+      currentAudio.currentTime = 0;
+    } else {
+      currentAudio = new Audio(audioFiles[currentScene]);
+      audioCache[currentScene] = currentAudio;
+    }
+
     currentAudio.volume = 0.95;
-    currentAudio.play().catch(() => {});
+    if (!isPaused) {
+      currentAudio.play().catch(() => {});
+    }
+
+    // Preload next audio
+    preloadNextAudio();
+  }
+
+  function updatePlayPauseUI() {
+    if (!playIcon || !pauseIcon) return;
+    if (isPaused || !isPlaying) {
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    } else {
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+    }
+  }
+
+  function togglePlayPause() {
+    if (!isPlaying) {
+      // Start from beginning if ended
+      startPresentation();
+      return;
+    }
+
+    if (isPaused) {
+      // Resume
+      isPaused = false;
+      sceneStartTime = Date.now() - pausedElapsed;
+      if (currentAudio && !isMuted) {
+        currentAudio.play().catch(() => {});
+      }
+      pauseIndicator.classList.remove('visible');
+      animate();
+    } else {
+      // Pause
+      isPaused = true;
+      pausedElapsed = Date.now() - sceneStartTime;
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+      pauseIndicator.classList.add('visible');
+    }
+    updatePlayPauseUI();
+  }
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    if (isMuted) {
+      volumeIcon.style.display = 'none';
+      muteIcon.style.display = 'block';
+      if (currentAudio) currentAudio.pause();
+    } else {
+      volumeIcon.style.display = 'block';
+      muteIcon.style.display = 'none';
+      if (currentAudio && isPlaying && !isPaused) {
+        currentAudio.play().catch(() => {});
+      }
+    }
+  }
+
+  function goToScene(index) {
+    if (index < 0 || index >= sceneElements.length) return;
+
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio = null;
+    }
+
+    currentScene = index;
+    sceneStartTime = Date.now();
+    pausedElapsed = 0;
+    showScene(currentScene);
+
+    // Hide replay overlay if visible
+    if (replayOverlay) replayOverlay.classList.remove('visible');
+
+    if (!isPlaying) {
+      isPlaying = true;
+      isPaused = false;
+      updatePlayPauseUI();
+      playVoiceover();
+      animate();
+    } else {
+      playVoiceover();
+    }
+  }
+
+  function prevScene() {
+    goToScene(currentScene - 1);
+  }
+
+  function nextScene() {
+    goToScene(currentScene + 1);
+  }
+
+  function showEndScreen() {
+    isPlaying = false;
+    isPaused = false;
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio = null;
+    }
+    if (replayOverlay) replayOverlay.classList.add('visible');
+    if (controls) controls.classList.add('always-visible');
+    updatePlayPauseUI();
+  }
+
+  function startPresentation() {
+    if (replayOverlay) replayOverlay.classList.remove('visible');
+    if (controls) controls.classList.remove('always-visible');
+    if (pauseIndicator) pauseIndicator.classList.remove('visible');
+
+    currentScene = 0;
+    isPlaying = true;
+    isPaused = false;
+    pausedElapsed = 0;
+    sceneStartTime = Date.now();
+    showScene(0);
+    updatePlayPauseUI();
+    playVoiceover();
+    animate();
   }
 
   function animate() {
-    if (!isPlaying) return;
+    if (!isPlaying || isPaused) return;
+
     const elapsed = Date.now() - sceneStartTime;
     const duration = sceneDurations[currentScene];
+
     if (elapsed >= duration) {
       if (currentScene < sceneElements.length - 1) {
         currentScene++;
@@ -1242,8 +1693,7 @@
         showScene(currentScene);
         playVoiceover();
       } else {
-        isPlaying = false;
-        if (currentAudio) currentAudio.pause();
+        showEndScreen();
         return;
       }
     }
@@ -1264,13 +1714,85 @@
     }
   }
 
+  function handleKeyboard(e) {
+    switch(e.code) {
+      case 'Space':
+        e.preventDefault();
+        if (replayOverlay && replayOverlay.classList.contains('visible')) {
+          startPresentation();
+        } else {
+          togglePlayPause();
+        }
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        prevScene();
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        nextScene();
+        break;
+      case 'KeyM':
+        e.preventDefault();
+        toggleMute();
+        break;
+      case 'KeyR':
+        e.preventDefault();
+        startPresentation();
+        break;
+    }
+  }
+
   function init() {
     sceneElements = document.querySelectorAll('.sc');
     if (!sceneElements || sceneElements.length === 0) return;
 
+    // Get DOM elements
+    playIcon = document.getElementById('playIcon');
+    pauseIcon = document.getElementById('pauseIcon');
+    volumeIcon = document.getElementById('volumeIcon');
+    muteIcon = document.getElementById('muteIcon');
+    playPauseBtn = document.getElementById('playPauseBtn');
+    muteBtn = document.getElementById('muteBtn');
+    prevBtn = document.getElementById('prevBtn');
+    nextBtn = document.getElementById('nextBtn');
+    replayBtn = document.getElementById('replayBtn');
+    progressDots = document.getElementById('progressDots');
+    replayOverlay = document.getElementById('replayOverlay');
+    pauseIndicator = document.getElementById('pauseIndicator');
+    loadingOverlay = document.getElementById('loadingOverlay');
+    controls = document.getElementById('controls');
+
     // Hide all scenes initially
     for (let i = 0; i < sceneElements.length; i++) {
       sceneElements[i].classList.remove('live');
+    }
+
+    // Create progress dots
+    createProgressDots();
+
+    // Setup event listeners
+    if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
+    if (muteBtn) muteBtn.addEventListener('click', toggleMute);
+    if (prevBtn) prevBtn.addEventListener('click', prevScene);
+    if (nextBtn) nextBtn.addEventListener('click', nextScene);
+    if (replayBtn) replayBtn.addEventListener('click', startPresentation);
+    if (replayOverlay) replayOverlay.addEventListener('click', (e) => {
+      if (e.target === replayOverlay) startPresentation();
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', handleKeyboard);
+
+    // Pause on hover (optional - can be toggled)
+    const viewport = document.getElementById('vp');
+    if (viewport) {
+      viewport.addEventListener('mouseenter', () => {
+        // Only pause if playing and not already paused
+        if (isPlaying && !isPaused && currentScene > 0) {
+          // Don't auto-pause on first scene
+        }
+      });
     }
 
     // Setup framework tab switching
@@ -1285,12 +1807,17 @@
     // Start particles
     setInterval(generateParticles, 2000);
 
-    // Start presentation
-    currentScene = 0;
-    isPlaying = true;
-    sceneStartTime = Date.now();
-    showScene(0);
-    animate();
+    // Preload first audio file
+    if (audioFiles[1]) {
+      audioCache[1] = new Audio(audioFiles[1]);
+      audioCache[1].preload = 'auto';
+    }
+
+    // Hide loading overlay and start presentation after brief delay
+    setTimeout(() => {
+      if (loadingOverlay) loadingOverlay.classList.add('hidden');
+      startPresentation();
+    }, 800);
   }
 
   // Run when DOM is ready
