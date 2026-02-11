@@ -602,48 +602,152 @@
     position: absolute; inset: 0;
     background: linear-gradient(170deg, var(--navy-deep) 0%, #081A14 100%);
   }
-  .s9-stats {
-    display: flex; gap: clamp(20px, 6vw, 56px);
-    margin-bottom: 28px;
+  .s9-heading {
+    font-size: clamp(16px, 2.5vw, 24px);
+    margin-bottom: clamp(16px, 3vw, 28px);
+    opacity: 0;
+    transition: opacity 0.6s ease 0.2s;
   }
-  .s9-stat {
-    text-align: center;
-    opacity: 0; transform: translateY(28px);
+  .sc.live .s9-heading { opacity: 1; }
+  .s9-charts {
+    display: flex;
+    gap: clamp(16px, 4vw, 40px);
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  .s9-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
     transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .sc.live .s9-stat:nth-child(1) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-  .sc.live .s9-stat:nth-child(2) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-  .sc.live .s9-stat:nth-child(3) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); }
-  .s9-num {
+  .sc.live .s9-chart:nth-child(1) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+  .sc.live .s9-chart:nth-child(2) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+  .sc.live .s9-chart:nth-child(3) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+
+  /* Circular progress chart */
+  .s9-ring {
+    position: relative;
+    width: clamp(70px, 12vw, 100px);
+    height: clamp(70px, 12vw, 100px);
+  }
+  .s9-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .s9-ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 6;
+  }
+  .s9-ring-fill {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 251;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+  }
+  .s9-ring-fill.green { stroke: var(--green); }
+  .s9-ring-fill.cyan { stroke: var(--cyan); }
+  .s9-ring-fill.blue { stroke: var(--blue); }
+  .sc.live .s9-ring-fill.p87 { stroke-dashoffset: 33; }
+  .sc.live .s9-ring-fill.p60 { stroke-dashoffset: 100; }
+  .sc.live .s9-ring-fill.p75 { stroke-dashoffset: 63; }
+  .s9-ring-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .s9-ring-num {
     font-family: 'Titillium Web', sans-serif;
-    font-size: clamp(30px, 7vw, 60px);
+    font-size: clamp(16px, 3vw, 26px);
     font-weight: 900;
-    color: var(--green);
+    color: var(--white);
     line-height: 1;
   }
-  .s9-label {
-    font-size: clamp(10px, 1.3vw, 13px);
+  .s9-ring-unit {
+    font-size: clamp(8px, 1.2vw, 12px);
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .s9-chart-label {
+    font-size: clamp(9px, 1.2vw, 12px);
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-top: 8px;
+    margin-top: 10px;
+    text-align: center;
   }
-  .s9-divider {
-    width: 50px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--green), transparent);
-    margin-bottom: 16px;
+
+  /* Bar chart */
+  .s9-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(320px, 50vw);
     opacity: 0;
-    transition: opacity 0.8s ease 1.3s;
+    transform: translateX(-20px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.9s;
   }
-  .sc.live .s9-divider { opacity: 0.5; }
+  .sc.live .s9-bars { opacity: 1; transform: translateX(0); }
+  .s9-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .s9-bar-label {
+    font-size: clamp(8px, 1vw, 11px);
+    font-weight: 500;
+    color: var(--text-secondary);
+    width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .s9-bar-track {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .s9-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .s9-bar-fill.green { background: linear-gradient(90deg, var(--green), #4ade80); }
+  .s9-bar-fill.cyan { background: linear-gradient(90deg, var(--cyan), #22d3ee); }
+  .s9-bar-fill.blue { background: linear-gradient(90deg, var(--blue), #60a5fa); }
+  .sc.live .s9-bar-fill.w87 { width: 87%; }
+  .sc.live .s9-bar-fill.w60 { width: 60%; }
+  .sc.live .s9-bar-fill.w75 { width: 75%; }
+  .sc.live .s9-bar-fill.w92 { width: 92%; }
+  .s9-bar-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 600;
+    color: var(--white);
+    width: 36px;
+    flex-shrink: 0;
+  }
+
   .s9-trust {
-    font-size: clamp(11px, 1.5vw, 14px);
+    font-size: clamp(10px, 1.4vw, 13px);
     font-weight: 400;
     letter-spacing: 2px;
     color: var(--text-dim);
     opacity: 0;
-    transition: opacity 0.8s ease 1.5s;
+    margin-top: 16px;
+    transition: opacity 0.8s ease 1.6s;
   }
   .sc.live .s9-trust { opacity: 1; }
 
@@ -1389,35 +1493,73 @@
    </div><!-- S9: RESULTS -->
    <div class="sc" data-dur="12000" data-vo="The results speak for themselves. Enterprise compliance, delivered.">
     <div class="s9-bg"></div>
-    <div class="s9-stats">
-     <div class="s9-stat">
-      <div class="s9-divider"></div>
-      <div class="s9-num">
-       87%
+    <div class="sc-headline s9-heading">Proven Results</div>
+
+    <!-- Circular Charts -->
+    <div class="s9-charts">
+     <div class="s9-chart">
+      <div class="s9-ring">
+       <svg viewBox="0 0 100 100">
+        <circle class="s9-ring-bg" cx="50" cy="50" r="40"/>
+        <circle class="s9-ring-fill green p87" cx="50" cy="50" r="40"/>
+       </svg>
+       <div class="s9-ring-center">
+        <div class="s9-ring-num">87%</div>
+       </div>
       </div>
-      <div class="s9-label">
-       Compliant
-      </div>
+      <div class="s9-chart-label">Compliance<br/>Score</div>
      </div>
-     <div class="s9-stat">
-      <div class="s9-divider"></div>
-      <div class="s9-num">
-       60%
+     <div class="s9-chart">
+      <div class="s9-ring">
+       <svg viewBox="0 0 100 100">
+        <circle class="s9-ring-bg" cx="50" cy="50" r="40"/>
+        <circle class="s9-ring-fill cyan p60" cx="50" cy="50" r="40"/>
+       </svg>
+       <div class="s9-ring-center">
+        <div class="s9-ring-num">60%</div>
+       </div>
       </div>
-      <div class="s9-label">
-       Cost Reduction
-      </div>
+      <div class="s9-chart-label">Cost<br/>Reduction</div>
      </div>
-     <div class="s9-stat">
-      <div class="s9-divider"></div>
-      <div class="s9-num">
-       3mo
+     <div class="s9-chart">
+      <div class="s9-ring">
+       <svg viewBox="0 0 100 100">
+        <circle class="s9-ring-bg" cx="50" cy="50" r="40"/>
+        <circle class="s9-ring-fill blue p75" cx="50" cy="50" r="40"/>
+       </svg>
+       <div class="s9-ring-center">
+        <div class="s9-ring-num">3mo</div>
+       </div>
       </div>
-      <div class="s9-label">
-       Time Saved
-      </div>
+      <div class="s9-chart-label">Time<br/>Saved</div>
      </div>
     </div>
+
+    <!-- Bar Chart -->
+    <div class="s9-bars">
+     <div class="s9-bar-row">
+      <div class="s9-bar-label">Controls</div>
+      <div class="s9-bar-track">
+       <div class="s9-bar-fill green w87"></div>
+      </div>
+      <div class="s9-bar-val">87%</div>
+     </div>
+     <div class="s9-bar-row">
+      <div class="s9-bar-label">Policies</div>
+      <div class="s9-bar-track">
+       <div class="s9-bar-fill cyan w92"></div>
+      </div>
+      <div class="s9-bar-val">92%</div>
+     </div>
+     <div class="s9-bar-row">
+      <div class="s9-bar-label">Evidence</div>
+      <div class="s9-bar-track">
+       <div class="s9-bar-fill blue w75"></div>
+      </div>
+      <div class="s9-bar-val">75%</div>
+     </div>
+    </div>
+
     <div class="s9-trust">
      Trusted by federal contractors and agencies nationwide.
     </div>
