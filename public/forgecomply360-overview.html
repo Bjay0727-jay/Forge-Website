@@ -1584,6 +1584,15 @@
   // Initialize
   updateScene();
   updateProgress();
+
+  // Auto-play when page loads (after a short delay to allow iframe to fully load)
+  setTimeout(() => {
+    isPlaying = true;
+    document.getElementById('playBtn').textContent = '⏸ Playing';
+    sceneStartTime = Date.now();
+    playVoiceover();
+    animate();
+  }, 500);
 </script>
  </body>
 </html>
