@@ -288,7 +288,7 @@ export default function ForgeComply360() {
             {/* Embedded Animated Overview */}
             <div className="aspect-video w-full">
               <iframe
-                src="https://forgecomply360.pages.dev/"
+                src="/forgecomply360-overview.html"
                 className="w-full h-full border-0"
                 title="ForgeComply 360 Overview"
                 allow="autoplay"
