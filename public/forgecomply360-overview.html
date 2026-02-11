@@ -840,6 +840,12 @@
     0% { transform: scaleY(0.3); }
     100% { transform: scaleY(1); }
   }
+
+  /* Intro/Outro Logo Animation */
+  .sc.live .intro-logo {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
 </style>
  </head>
  <body>
@@ -855,9 +861,15 @@
    <div class="amb-vignette"></div>
    <div class="amb-particles" id="ptcls"></div>
    <div class="amb-scanline"></div>
-   <div class="sc-counter" id="scCounter">
-    01 / 10
-   </div><!-- S1: HOOK -->
+   <!-- S0: LOGO INTRO -->
+   <div class="sc live" data-dur="4000">
+    <div class="s1-radial"></div>
+    <img src="/logos/forgecomply360-product-logo.svg" alt="ForgeComply 360" style="max-width: 320px; width: 80%; height: auto; margin-bottom: 20px; opacity: 0; transform: scale(0.8); transition: all 1s ease 0.3s;" class="intro-logo" />
+    <div class="sc-headline" style="font-size: clamp(18px, 3vw, 28px); margin-top: 10px;">
+     Enterprise GRC Platform
+    </div>
+   </div>
+   <!-- S1: HOOK -->
    <div class="sc live" data-dur="10000" data-vo="Is your organization prepared for today's federal compliance requirements?">
     <div class="s1-radial"></div>
     <div class="s1-accent"></div>
@@ -1258,58 +1270,28 @@
      Trusted by federal contractors and agencies nationwide.
     </div>
    </div><!-- S10: CTA -->
-   <div class="sc" data-dur="15000" data-vo="Ready to transform your compliance program? Let's get started today.">
-    <div class="s10-logo-area">
-     <div class="s10-logo-text">
-      FORGECOMPLY
-     </div>
-     <div class="s10-product">
-      360™
-     </div>
-    </div>
-    <div class="s10-ask">
+   <div class="sc" data-dur="8000" data-vo="Ready to transform your compliance program? Let's get started today.">
+    <div class="s1-radial"></div>
+    <img src="/logos/forgecomply360-product-logo.svg" alt="ForgeComply 360" style="max-width: 280px; width: 70%; height: auto; margin-bottom: 24px; opacity: 0; transform: scale(0.8); transition: all 1s ease 0.3s;" class="intro-logo" />
+    <div class="s10-ask" style="font-size: clamp(16px, 2.5vw, 24px); margin-bottom: 16px;">
      Ready to simplify compliance?
-    </div><button class="s10-btn" id="ctaBtn">Schedule Demo</button>
-    <div class="s10-details">
-     <div class="s10-url">
+    </div>
+    <div class="s10-details" style="opacity: 1;">
+     <div class="s10-url" style="font-size: clamp(12px, 1.6vw, 16px);">
       www.forgecyberdefense.com
      </div>
-     <div class="s10-phone">
-      (469) 404-3899
-     </div>
-     <div class="s10-vet">
-      Veteran-Owned
-     </div>
-    </div>
-   </div>
-   <div class="vo-strip">
-    <div class="vo-mic">
-     🎤
-    </div>
-    <div class="vo-copy" id="voText">
-     Is your organization prepared for today's federal compliance requirements?
-    </div>
-    <div class="audio-ind" id="audioInd">
-     <div class="audio-bar"></div>
-     <div class="audio-bar"></div>
-     <div class="audio-bar"></div>
-     <div class="audio-bar"></div>
-     <div class="audio-bar"></div>
     </div>
    </div>
   </div>
-  <div class="ctrls"><button class="btn btn-play" id="playBtn">▶ Play</button> <button class="btn btn-sec btn-sm" id="pauseBtn">⏸ Pause</button> <button class="btn btn-sec btn-sm" id="resetBtn">↺ Reset</button>
-  </div>
-  <div class="prog-track">
-   <div class="prog-bar" id="progBar"></div>
-  </div>
-  <div class="dots-row" id="dotsRow"></div>
-  <div class="time-label" id="timeLabel">
-   00:00 / 02:07
-  </div>
-  <div class="powered">
-   Powered by ForgeComply 360™
-  </div>
+  <!-- Hidden elements for compatibility -->
+  <div id="playBtn" style="display:none"></div>
+  <div id="pauseBtn" style="display:none"></div>
+  <div id="resetBtn" style="display:none"></div>
+  <div id="progBar" style="display:none"></div>
+  <div id="dotsRow" style="display:none"></div>
+  <div id="timeLabel" style="display:none"></div>
+  <div id="voText" style="display:none"></div>
+  <div id="audioInd" style="display:none"></div>
   <script>
   // Framework data for dynamic dashboard
   const frameworkData = {
@@ -1320,16 +1302,17 @@
   };
 
   const scenes = [
-    { element: document.querySelectorAll('.sc')[0], duration: 6000, vo: "Is your organization prepared for today's federal compliance requirements?" },
-    { element: document.querySelectorAll('.sc')[1], duration: 9000, vo: "Manual processes. Fragmented documentation. Rising costs. And the ever-present risk of audit failure." },
-    { element: document.querySelectorAll('.sc')[2], duration: 6000, vo: "Introducing ForgeComply Three Sixty. Enterprise compliance management, simplified." },
-    { element: document.querySelectorAll('.sc')[3], duration: 9000, vo: "Gain complete visibility across every framework. One unified dashboard. Real-time compliance posture at a glance." },
-    { element: document.querySelectorAll('.sc')[4], duration: 7000, vo: "Identify every compliance gap with pinpoint accuracy. See exactly where you stand across frameworks." },
-    { element: document.querySelectorAll('.sc')[5], duration: 8000, vo: "Organize remediation with a powerful Plan of Action and Milestones board. Track progress in real time." },
-    { element: document.querySelectorAll('.sc')[6], duration: 6000, vo: "Every policy, procedure, and artifact in one secure, searchable vault. Always audit-ready." },
-    { element: document.querySelectorAll('.sc')[7], duration: 8000, vo: "Real-time alerts on compliance events. Never miss a critical issue again." },
-    { element: document.querySelectorAll('.sc')[8], duration: 7000, vo: "The results speak for themselves. Enterprise compliance, delivered." },
-    { element: document.querySelectorAll('.sc')[9], duration: 9000, vo: "Ready to transform your compliance program? Let's get started today." }
+    { element: document.querySelectorAll('.sc')[0], duration: 4000, vo: null }, // Logo intro - no audio
+    { element: document.querySelectorAll('.sc')[1], duration: 6000, vo: "Is your organization prepared for today's federal compliance requirements?" },
+    { element: document.querySelectorAll('.sc')[2], duration: 9000, vo: "Manual processes. Fragmented documentation. Rising costs. And the ever-present risk of audit failure." },
+    { element: document.querySelectorAll('.sc')[3], duration: 6000, vo: "Introducing ForgeComply Three Sixty. Enterprise compliance management, simplified." },
+    { element: document.querySelectorAll('.sc')[4], duration: 9000, vo: "Gain complete visibility across every framework. One unified dashboard. Real-time compliance posture at a glance." },
+    { element: document.querySelectorAll('.sc')[5], duration: 7000, vo: "Identify every compliance gap with pinpoint accuracy. See exactly where you stand across frameworks." },
+    { element: document.querySelectorAll('.sc')[6], duration: 8000, vo: "Organize remediation with a powerful Plan of Action and Milestones board. Track progress in real time." },
+    { element: document.querySelectorAll('.sc')[7], duration: 6000, vo: "Every policy, procedure, and artifact in one secure, searchable vault. Always audit-ready." },
+    { element: document.querySelectorAll('.sc')[8], duration: 8000, vo: "Real-time alerts on compliance events. Never miss a critical issue again." },
+    { element: document.querySelectorAll('.sc')[9], duration: 7000, vo: "The results speak for themselves. Enterprise compliance, delivered." },
+    { element: document.querySelectorAll('.sc')[10], duration: 6000, vo: "Ready to transform your compliance program? Let's get started today." }
   ];
 
   let currentScene = 0;
@@ -1436,8 +1419,9 @@
     animationFrameId = requestAnimationFrame(animate);
   }
 
-  // Audio files for real voiceover
+  // Audio files for real voiceover (scene 0 has no audio - logo intro)
   const audioFiles = [
+    null, // Scene 0: Logo intro - no audio
     '/audio/vo-01.mp3',
     '/audio/vo-02.mp3',
     '/audio/vo-03.mp3',
@@ -1498,6 +1482,11 @@
     // Stop any currently playing audio
     if (currentAudio) {
       currentAudio.pause();
+    }
+
+    // Skip if no audio file for this scene (like logo intro)
+    if (!audioFiles[currentScene]) {
+      return;
     }
 
     // Create new audio element for current scene
