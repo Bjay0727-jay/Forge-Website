@@ -55,9 +55,9 @@ const frameworks = [
 ];
 
 const stats = [
-  { value: '70%', label: 'Faster Time to ATO' },
-  { value: '700+', label: 'Pre-Built Controls' },
-  { value: '25+', label: 'Frameworks Supported' },
+  { value: 'Designed to', label: 'Accelerate ATO' },
+  { value: 'Comprehensive', label: 'Control Library' },
+  { value: 'Multi-Framework', label: 'Coverage' },
   { value: '24/7', label: 'Continuous Monitoring' }
 ];
 
@@ -85,7 +85,7 @@ export default function ForgeComply360() {
             ForgeComply 360<sup className="text-lg">™</sup>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-            The AI-powered compliance platform that transforms how organizations achieve and maintain
+            An AI-powered compliance platform designed to transform how organizations achieve and maintain
             federal authorization. Built by compliance experts, for compliance teams.
           </p>
 
@@ -220,8 +220,9 @@ export default function ForgeComply360() {
                           </linearGradient>
                         </defs>
                       </svg>
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <span className="text-xl font-bold text-white">80%</span>
+                        <span className="text-[8px] text-slate-400">Development</span>
                       </div>
                     </div>
                   </div>
