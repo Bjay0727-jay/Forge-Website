@@ -28,9 +28,9 @@ export default function SecurityCallout() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
-            <StatBlock value="30+" label="Years Combined Experience" />
+            <StatBlock value="25+ Years" label="Federal Experience" />
             <StatBlock value="6" label="Compliance Frameworks" />
-            <StatBlock value="70%" label="Faster Authorization" />
+            <StatBlock value="Proven" label="Methodology" />
             <StatBlock value="24/7" label="Continuous Monitoring" />
           </div>
         </div>
