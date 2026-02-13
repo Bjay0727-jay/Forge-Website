@@ -127,10 +127,10 @@ export default function ForgeComply360() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-teal-400 mb-1">
+              <p className="text-2xl md:text-3xl font-bold text-teal-400 mb-1 italic">
                 {stat.value}
               </p>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-300 text-base md:text-lg">
                 {stat.label}
               </p>
             </div>
