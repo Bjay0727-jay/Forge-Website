@@ -123,7 +123,7 @@ export default function ComplianceJourney() {
             The Forge Compliance Journey
           </h2>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-            A proven methodology that takes you from initial assessment through authorization
+            A structured methodology designed to take you from initial assessment through authorization
             and beyond. We partner with you at every stage.
           </p>
         </div>
@@ -289,8 +289,8 @@ export default function ComplianceJourney() {
         {/* Bottom Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
           {[
-            { value: '70%', label: 'Faster Authorization' },
-            { value: '100+', label: 'Successful ATOs' },
+            { value: 'Accelerated', label: 'Authorization Timelines' },
+            { value: '25+ Years', label: 'Federal Experience' },
             { value: '6', label: 'Compliance Frameworks' },
             { value: '24/7', label: 'Continuous Monitoring' },
           ].map((stat, index) => (
