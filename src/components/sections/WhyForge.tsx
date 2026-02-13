@@ -5,7 +5,7 @@ const reasons = [
   { icon: Award, title: 'Veteran-Owned Business', desc: 'Veteran-owned business with military discipline and mission-focused delivery. We bring the same commitment to your security that we brought to national defense.' },
   { icon: Layers, title: 'Multi-Framework Expertise', desc: 'Deep knowledge across FedRAMP, FISMA, CMMC, HIPAA, SOC 2, and ISO 27001 — not just one framework. We understand how compliance requirements overlap and intersect.' },
   { icon: Wrench, title: 'We Build & We Secure', desc: 'Unique combination of application development and compliance expertise under one roof. Security is built in, not bolted on — because our developers and compliance teams work together.' },
-  { icon: Zap, title: 'Accelerated Timelines', desc: 'Proven methodologies that reduce compliance timelines significantly — getting you authorized faster without cutting corners. Our templates and processes are battle-tested.' },
+  { icon: Zap, title: 'Accelerated Timelines', desc: 'Structured methodologies designed to reduce compliance timelines significantly — getting you authorized faster without cutting corners. Our templates and processes are built on decades of federal experience.' },
 ];
 
 export default function WhyForge() {

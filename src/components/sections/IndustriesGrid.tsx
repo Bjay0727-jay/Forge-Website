@@ -13,7 +13,7 @@ export default function IndustriesGrid() {
   return (
     <section id="industries" className="py-24 px-8 bg-white">
       <div className="max-w-[1280px] mx-auto">
-        <SectionHeading label="Industries We Serve" labelIcon={<Globe className="w-[18px] h-[18px]" />} title="Specialized Security Across Industries" subtitle="We bring results-oriented leadership and repeated success guiding security initiatives across government, healthcare, defense, and private sector environments. Our team excels at evaluating organizations and driving real solutions for real problems." />
+        <SectionHeading label="Industries We Serve" labelIcon={<Globe className="w-[18px] h-[18px]" />} title="Specialized Security Across Industries" subtitle="We bring results-oriented leadership and extensive experience guiding security initiatives across government, healthcare, defense, and private sector environments. Our team excels at evaluating organizations and driving real solutions for real problems." />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {industries.map((ind) => (
             <div key={ind.title} className="text-center p-8 rounded-2xl border border-gray-200 bg-gray-50 transition-all hover:border-teal-500 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1">
