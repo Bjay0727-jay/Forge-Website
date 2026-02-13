@@ -10,13 +10,13 @@ export default function Hero() {
       <div className="max-w-[1280px] mx-auto relative z-10">
         <div className="flex gap-3 flex-wrap mb-8">
           <Badge variant="dark" size="md" icon={<Shield className="w-4 h-4" />}>Veteran-Owned Business</Badge>
-          <Badge variant="dark" size="md" icon={<Zap className="w-4 h-4" />}>30+ Years Experience</Badge>
+          <Badge variant="dark" size="md" icon={<Zap className="w-4 h-4" />}>25+ Years Experience</Badge>
         </div>
         <h1 className="text-5xl md:text-[56px] font-extrabold leading-[1.1] tracking-tight mb-6 max-w-[900px]">
           Security Compliance <br />&amp; <span className="text-teal-400">Application Development</span>
         </h1>
         <p className="text-xl text-white/75 leading-relaxed max-w-[720px] mb-12">
-          Results-oriented leadership and proven success guiding security and technology initiatives across government, healthcare, and private sector environments. We evaluate organizations, uncover vulnerabilities, and deliver real solutions for complex challenges.
+          Results-oriented leadership and deep expertise guiding security and technology initiatives across government, healthcare, and private sector environments. We evaluate organizations, uncover vulnerabilities, and deliver real solutions for complex challenges.
         </p>
         <div className="flex gap-4 flex-wrap mb-16">
           <Button href="/contact" variant="primary" size="lg" icon={<MessageSquare className="w-5 h-5" />}>Schedule a Consultation</Button>
