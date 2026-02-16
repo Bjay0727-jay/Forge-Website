@@ -31,7 +31,6 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
       description: data.description || '',
       badge: data.badge || '',
       badgeColor: data.badgeColor || 'teal',
-      rate: data.rate,
       heroAccent: data.heroAccent,
       features: data.features || [],
       phases: data.phases || [],

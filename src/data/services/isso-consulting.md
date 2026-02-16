@@ -3,7 +3,6 @@ title: "ISSO Consulting & Staffing"
 description: "Experienced Information System Security Officers available for embedded or advisory roles. Continuous compliance management and security operations support."
 badge: "Staffing"
 badgeColor: "blue"
-rate: "$175/hr"
 heroAccent: "blue"
 features:
   - title: "Dedicated ISSO Support"

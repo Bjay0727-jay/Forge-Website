@@ -3,7 +3,6 @@ title: "FedRAMP Authorization Consulting"
 description: "End-to-end FedRAMP authorization support for cloud service providers seeking federal market access. From readiness assessment through Authority to Operate (ATO)."
 badge: "Most Popular"
 badgeColor: "teal"
-rate: "$225/hr"
 heroAccent: "teal"
 features:
   - title: "Gap Analysis & Readiness"

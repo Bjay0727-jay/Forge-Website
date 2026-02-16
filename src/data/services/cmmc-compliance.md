@@ -3,7 +3,6 @@ title: "CMMC Compliance"
 description: "Cybersecurity Maturity Model Certification readiness and implementation for defense industrial base contractors handling CUI."
 badge: "Defense"
 badgeColor: "blue"
-rate: "$225/hr"
 heroAccent: "blue"
 features:
   - title: "CMMC Readiness Assessment"

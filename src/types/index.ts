@@ -4,7 +4,6 @@ export interface Service {
   description: string;
   badge: string;
   badgeColor: 'teal' | 'blue' | 'red' | 'amber';
-  rate?: string;
   heroAccent?: string;
   features: ServiceFeature[];
   phases?: ServicePhase[];

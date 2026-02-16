@@ -3,7 +3,6 @@ title: "Security Architecture & Engineering"
 description: "Design and implement security architectures for cloud, hybrid, and on-premises environments. Zero trust, defense in depth, and compliance-ready infrastructure."
 badge: "Technical"
 badgeColor: "teal"
-rate: "$250/hr"
 heroAccent: "teal"
 features:
   - title: "Zero Trust Architecture"

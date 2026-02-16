@@ -7,10 +7,10 @@ import CTABanner from '@/components/sections/CTABanner';
 export const metadata: Metadata = { title: 'Services', description: 'Explore Forge Cyber Defense security compliance consulting and application development services.' };
 
 const consultingServices = [
-  { icon: Users, title: 'ISSO Consultant', desc: 'Experienced ISSOs for ongoing compliance management and security assessments.', href: '/services/isso-consultant', rate: '$175/hr' },
-  { icon: ShieldCheck, title: 'Senior ISSO / RMF Lead', desc: 'Senior-level compliance leadership for complex RMF implementations.', href: '/services/senior-isso-rmf', rate: '$225/hr' },
-  { icon: Landmark, title: 'Security Architect', desc: 'Security architecture design meeting federal and commercial requirements.', href: '/services/security-architect', rate: '$250/hr' },
-  { icon: Shield, title: 'FedRAMP Specialist', desc: 'End-to-end FedRAMP authorization from readiness through P-ATO.', href: '/services/fedramp-specialist', rate: 'Contact Us' },
+  { icon: Users, title: 'ISSO Consultant', desc: 'Experienced ISSOs for ongoing compliance management and security assessments.', href: '/services/isso-consultant' },
+  { icon: ShieldCheck, title: 'Senior ISSO / RMF Lead', desc: 'Senior-level compliance leadership for complex RMF implementations.', href: '/services/senior-isso-rmf' },
+  { icon: Landmark, title: 'Security Architect', desc: 'Security architecture design meeting federal and commercial requirements.', href: '/services/security-architect' },
+  { icon: Shield, title: 'FedRAMP Specialist', desc: 'End-to-end FedRAMP authorization from readiness through P-ATO.', href: '/services/fedramp-specialist' },
 ];
 
 const fedRampPackages = [
@@ -38,7 +38,7 @@ export default function ServicesPage() {
                 <div className="w-[52px] h-[52px] rounded-xl flex items-center justify-center mb-5 bg-teal-500/15"><svc.icon className="w-[26px] h-[26px] text-teal-500" /></div>
                 <h3 className="text-lg font-bold text-navy-700 mb-2">{svc.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4">{svc.desc}</p>
-                <div className="flex items-center justify-between"><span className="text-sm font-bold text-teal-500">{svc.rate}</span><ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-teal-500 transition-colors" /></div>
+                <div className="flex items-center justify-between"><span className="text-sm font-semibold text-teal-500 flex items-center gap-2 group-hover:gap-3 transition-all">Learn More</span><ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-teal-500 transition-colors" /></div>
               </Link>
             ))}
           </div>

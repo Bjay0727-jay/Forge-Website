@@ -3,7 +3,6 @@ title: "SOC 2 Compliance"
 description: "SOC 2 Type I and Type II readiness consulting for technology companies. Trust Services Criteria implementation and audit preparation."
 badge: "Enterprise"
 badgeColor: "teal"
-rate: "$175/hr"
 heroAccent: "teal"
 features:
   - title: "Readiness Assessment"

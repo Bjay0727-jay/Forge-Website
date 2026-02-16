@@ -3,7 +3,6 @@ title: "HIPAA Security Compliance"
 description: "Healthcare security compliance consulting for covered entities and business associates. Risk assessments, policy development, and ongoing compliance management."
 badge: "Healthcare"
 badgeColor: "teal"
-rate: "$175/hr"
 heroAccent: "teal"
 features:
   - title: "Security Risk Assessment"

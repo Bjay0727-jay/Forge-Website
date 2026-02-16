@@ -3,7 +3,6 @@ title: "FISMA & RMF Compliance"
 description: "Federal Information Security Modernization Act compliance and NIST Risk Management Framework implementation for federal agencies and contractors."
 badge: "Federal"
 badgeColor: "blue"
-rate: "$225/hr"
 heroAccent: "blue"
 features:
   - title: "RMF Implementation"

@@ -32,7 +32,6 @@ export default async function ServicePage({ params }: PageProps) {
           <span className={`inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-4 ${service.badgeColor === 'red' ? 'bg-red-500 text-white' : service.badgeColor === 'blue' ? 'bg-blue-500 text-white' : 'bg-teal-500 text-white'}`}>{service.badge}</span>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">{service.title}</h1>
           <p className="text-xl text-white/75 max-w-[720px] leading-relaxed">{service.description}</p>
-          {service.rate && <div className="mt-6 text-2xl font-bold text-teal-400">{service.rate}</div>}
         </div>
       </section>
       {service.stats && service.stats.length > 0 && (
