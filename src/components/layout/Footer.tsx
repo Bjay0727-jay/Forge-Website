@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-600">&copy; {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.</p>
-          <p className="text-xs text-gray-600">Security Compliance &amp; Application Development</p>
+          <p className="text-xs text-teal-500/70 font-semibold tracking-wide">{COMPANY.tagline}</p>
         </div>
       </div>
     </footer>

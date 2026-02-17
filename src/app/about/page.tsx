@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Shield, Award, Target, Users, CheckCircle, Eye, Crosshair, Heart, MessageSquare, Handshake, Sparkles } from 'lucide-react';
 import CTABanner from '@/components/sections/CTABanner';
 
-export const metadata: Metadata = { title: 'About', description: 'Forge Cyber Defense is a veteran-owned cybersecurity firm dedicated to national security and reducing risk through proven compliance services.' };
+export const metadata: Metadata = { title: 'About', description: 'Security Forged. Trust Proven. Forge Cyber Defense is a veteran-owned cybersecurity firm dedicated to national security and reducing risk through proven compliance services.' };
 
 const coreValues = [
   { icon: Users, title: 'People', desc: 'We are motivated, highly skilled professionals invested in our customers\u2019 success.' },
@@ -17,18 +17,18 @@ const coreValues = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-20 px-8 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-24 px-8 relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern" />
         <div className="max-w-[1280px] mx-auto relative z-10">
           <h1 className="text-5xl font-extrabold tracking-tight mb-6">About Forge Cyber Defense</h1>
-          <p className="text-xl text-white/75 max-w-[720px] leading-relaxed">Veteran-owned. Mission-driven. Enhancing information security through outreach, awareness, assessment, policy, and best practices.</p>
+          <p className="text-xl text-white/75 max-w-[720px] leading-relaxed">Security Forged. Trust Proven. A veteran-owned firm enhancing information security through outreach, awareness, assessment, policy, and best practices.</p>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 px-8 bg-white">
+      <section className="py-28 px-8 bg-white">
         <div className="max-w-[1080px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mb-24">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Eye className="w-5 h-5 text-teal-500" />
@@ -45,14 +45,14 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-extrabold text-navy-700 tracking-tight mb-6">Dedicated to National Security</h2>
               <p className="text-gray-600 leading-relaxed mb-4">Forge Cyber Defense is deeply committed to its mission of reducing risks to our clients&apos; infrastructure. We strive to become a valued asset to the community by giving back and paying it forward.</p>
-              <p className="text-gray-600 leading-relaxed mb-4">Our goal is to be a trusted partner by consistently delivering proven, on-point services to our clients. We provide an organizational culture that fosters innovation, technical excellence, dedication to repeatable processes, and attention to detail to effectively meet our customers&apos; strategic goals.</p>
+              <p className="text-gray-600 leading-relaxed mb-4">Our goal is to be a trusted partner by consistently delivering proven, on-point services to our clients. We provide an organizational culture that fosters innovation, technical excellence, dedication to repeatable processes, and attention to detail.</p>
               <p className="text-gray-600 leading-relaxed">As a veteran-owned business, we believe our employees are our greatest asset. By empowering our team to excel, Forge consistently exceeds our customers&apos; expectations.</p>
             </div>
           </div>
 
           {/* Core Values */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
+          <div className="mb-24">
+            <div className="text-center mb-14">
               <span className="text-sm font-bold uppercase tracking-wider text-teal-500">We are who we say we are</span>
               <h2 className="text-3xl font-extrabold text-navy-700 tracking-tight mt-3">Core Values: PROTECT</h2>
               <p className="text-gray-500 mt-3 max-w-[640px] mx-auto">Forge Cyber Defense was built on the principle to PROTECT. Our core values guide every engagement and every interaction.</p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           {/* What We Do */}
-          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-10 mb-20">
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-10 mb-24">
             <h2 className="text-2xl font-extrabold text-navy-700 tracking-tight mb-6">What We Do</h2>
             <p className="text-gray-600 leading-relaxed mb-8">For years, we&apos;ve been helping organizations meet their strategic goals. Through balanced insight, Forge brings strategies to deliver the right solutions to meet business requirements. Our team of experts is ready to help you develop strategies for not only surviving, but thriving in the future.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

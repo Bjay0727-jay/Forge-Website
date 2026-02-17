@@ -4,7 +4,7 @@ import { Shield, Users, ShieldCheck, Landmark, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import CTABanner from '@/components/sections/CTABanner';
 
-export const metadata: Metadata = { title: 'Services', description: 'Explore Forge Cyber Defense security compliance consulting and application development services.' };
+export const metadata: Metadata = { title: 'Services', description: 'Security Forged. Trust Proven. Explore Forge Cyber Defense compliance consulting and secure application development services.' };
 
 const consultingServices = [
   { icon: Users, title: 'ISSO Consultant', desc: 'Experienced ISSOs for ongoing compliance management and security assessments.', href: '/services/isso-consultant' },
@@ -22,14 +22,14 @@ const fedRampPackages = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-20 px-8 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-24 px-8 relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern" />
         <div className="max-w-[1280px] mx-auto relative z-10">
           <h1 className="text-5xl font-extrabold tracking-tight mb-6">Our Services</h1>
           <p className="text-xl text-white/75 max-w-[720px] leading-relaxed">Expert security compliance consulting and secure application development services tailored to your organization&apos;s needs.</p>
         </div>
       </section>
-      <section className="py-24 px-8 bg-white">
+      <section className="py-28 px-8 bg-white">
         <div className="max-w-[1280px] mx-auto">
           <SectionHeading label="Consulting" title="Security Consulting Services" subtitle="Embed our experienced security professionals directly into your team." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-      <section className="py-24 px-8 bg-gray-50">
+      <section className="py-28 px-8 bg-gray-50">
         <div className="max-w-[1280px] mx-auto">
           <SectionHeading label="FedRAMP" title="FedRAMP Authorization Packages" subtitle="Turnkey authorization packages for every impact level." />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

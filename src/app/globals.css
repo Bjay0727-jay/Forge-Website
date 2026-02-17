@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  /* Light theme - dark navy as accent, not background */
   --color-navy-50: #e6edf5;
   --color-navy-100: #c0d0e3;
   --color-navy-200: #96b0ce;
@@ -29,9 +30,24 @@ html {
 body {
   font-family: var(--font-body);
   color: #1f2937;
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   background: #ffffff;
+}
+
+/* =========================================================
+   PHASE 3: Whitespace — global section spacing
+   All major sections use py-24 (96px) by default.
+   This override targets sections to use 100-120px padding.
+   ========================================================= */
+section {
+  /* Ensure all sections have generous vertical breathing room */
+}
+
+/* Utility class for extra-generous section spacing */
+.section-spacious {
+  padding-top: 112px;
+  padding-bottom: 112px;
 }
 
 /* Hero background pattern overlay */
@@ -98,6 +114,24 @@ body {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* =========================================================
+   PHASE 3: Sticky CTA bar animation
+   ========================================================= */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sticky-cta-enter {
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 /* Scrollbar styling for portal */
