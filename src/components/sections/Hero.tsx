@@ -5,7 +5,7 @@ import ForgeWheel from '@/components/sections/ForgeWheel';
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-32 px-8 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-56 pb-32 px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(13,148,136,0.08)_0%,transparent_60%),radial-gradient(ellipse_at_80%_20%,rgba(59,130,246,0.06)_0%,transparent_50%)]" />
       <div className="absolute inset-0 hero-pattern" />
       <div className="max-w-[1280px] mx-auto relative z-10">
