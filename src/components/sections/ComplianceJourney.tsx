@@ -120,7 +120,7 @@ export default function ComplianceJourney() {
             Your Path to Compliance
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            The Forge Compliance Journey
+            The Forge Cyber Defense Compliance Journey
           </h2>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto">
             A structured methodology designed to take you from initial assessment through authorization

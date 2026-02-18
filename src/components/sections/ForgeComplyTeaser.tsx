@@ -23,9 +23,9 @@ export default function ForgeComplyTeaser() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(45,212,191,0.04)_0%,transparent_60%)]" />
       <div className="max-w-[1280px] mx-auto relative z-10">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-teal-500/[0.08] border border-teal-500/20 px-4 py-1.5 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-            <span className="text-[10px] font-mono font-medium tracking-[1.5px] uppercase text-teal-400">Our GRC Platform</span>
+          <div className="inline-flex items-center gap-2.5 bg-teal-500/[0.08] border border-teal-500/20 px-6 py-2.5 rounded-full mb-6">
+            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+            <span className="text-sm font-mono font-semibold tracking-[1.5px] uppercase text-teal-400">Continuous Trust &amp; Assurance Platform</span>
           </div>
           <h2 className="text-3xl md:text-[42px] font-extrabold text-white leading-[1.12] tracking-tight mb-3">
             ForgeComply 360<span className="text-teal-400">™</span>

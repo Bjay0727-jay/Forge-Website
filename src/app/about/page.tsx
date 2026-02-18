@@ -46,7 +46,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-extrabold text-navy-700 tracking-tight mb-6">Dedicated to National Security</h2>
               <p className="text-gray-600 leading-relaxed mb-4">Forge Cyber Defense is deeply committed to its mission of reducing risks to our clients&apos; infrastructure. We strive to become a valued asset to the community by giving back and paying it forward.</p>
               <p className="text-gray-600 leading-relaxed mb-4">Our goal is to be a trusted partner by consistently delivering proven, on-point services to our clients. We provide an organizational culture that fosters innovation, technical excellence, dedication to repeatable processes, and attention to detail.</p>
-              <p className="text-gray-600 leading-relaxed">As a veteran-owned business, we believe our employees are our greatest asset. By empowering our team to excel, Forge consistently exceeds our customers&apos; expectations.</p>
+              <p className="text-gray-600 leading-relaxed">As a veteran-owned business, we believe our employees are our greatest asset. By empowering our team to excel, Forge Cyber Defense consistently exceeds our customers&apos; expectations.</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
           {/* What We Do */}
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-10 mb-24">
             <h2 className="text-2xl font-extrabold text-navy-700 tracking-tight mb-6">What We Do</h2>
-            <p className="text-gray-600 leading-relaxed mb-8">For years, we&apos;ve been helping organizations meet their strategic goals. Through balanced insight, Forge brings strategies to deliver the right solutions to meet business requirements. Our team of experts is ready to help you develop strategies for not only surviving, but thriving in the future.</p>
+            <p className="text-gray-600 leading-relaxed mb-8">For years, we&apos;ve been helping organizations meet their strategic goals. Through balanced insight, Forge Cyber Defense brings strategies to deliver the right solutions to meet business requirements. Our team of experts is ready to help you develop strategies for not only surviving, but thriving in the future.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 'FedRAMP Authorization (Low, Moderate, High)',

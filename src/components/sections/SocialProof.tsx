@@ -11,7 +11,7 @@ const results = [
 // Replace these with real testimonials when available
 const testimonials = [
   {
-    quote: "Forge brought the structure and federal experience we needed to get through FedRAMP authorization. Their team integrated seamlessly with ours.",
+    quote: "Forge Cyber Defense brought the structure and federal experience we needed to get through FedRAMP authorization. Their team integrated seamlessly with ours.",
     attribution: "— Cloud Service Provider, Federal Sector",
   },
   {

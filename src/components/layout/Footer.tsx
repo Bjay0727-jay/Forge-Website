@@ -32,7 +32,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Forge Personnel</h4>
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Forge Cyber Defense Personnel</h4>
             <ul className="space-y-3 list-none p-0">
               {FOOTER_LINKS.personnel.map((link) => (
                 <li key={link.href}><Link href={link.href} className="text-sm text-gray-500 no-underline hover:text-teal-400 transition-colors">{link.label}</Link></li>

@@ -73,4 +73,4 @@ Our ISSOs go beyond basic compliance checkbox activities. They provide:
 
 ### Qualifications
 
-All Forge ISSOs hold relevant certifications (CISSP, CISM, CAP, Security+) and have direct experience with federal agency environments. Many hold active security clearances and understand the unique requirements of classified and sensitive environments.
+All Forge Cyber Defense ISSOs hold relevant certifications (CISSP, CISM, CAP, Security+) and have direct experience with federal agency environments. Many hold active security clearances and understand the unique requirements of classified and sensitive environments.

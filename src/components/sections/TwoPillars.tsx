@@ -1,4 +1,4 @@
-import { Shield, Code, ArrowRight } from 'lucide-react';
+import { Shield, Network, Crosshair, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '@/components/ui/SectionHeading';
 
@@ -13,13 +13,22 @@ const pillars = [
     highlights: ['Gap analysis & readiness assessments', 'Full authorization package development', 'Continuous monitoring programs', 'ISSO consulting & staffing'],
   },
   {
-    icon: Code,
-    title: 'Application Development',
-    description: 'Custom applications built with compliance-ready architecture from the first line of code. Government portals, enterprise SaaS, compliance platforms, and APIs — all with security engineered in, not bolted on.',
+    icon: Network,
+    title: 'Security Architecture & Design',
+    description: 'Network and cybersecurity professionals who design solutions tailored to your environment. We assess your unique risk landscape and engineer architectures that mitigate threats — not just check boxes.',
     href: '/services',
-    linkText: 'Explore Development Services',
+    linkText: 'Explore Architecture Services',
     color: 'blue',
-    highlights: ['Government portals (508, FedRAMP-aligned)', 'Custom SaaS & compliance platforms', 'Enterprise web & mobile applications', 'Secure API development & integration'],
+    highlights: ['Zero Trust architecture design', 'System boundary engineering', 'Cloud security & infrastructure', 'Risk-driven solution design'],
+  },
+  {
+    icon: Crosshair,
+    title: 'ForgeRedOps',
+    description: 'Integrated offensive security and vulnerability management for federal, defense, and enterprise environments. Continuous vulnerability monitoring, penetration testing, and automated remediation — with native ForgeComply 360 integration.',
+    href: '/contact?service=forgeredops',
+    linkText: 'Learn About ForgeRedOps',
+    color: 'red',
+    highlights: ['Continuous vulnerability monitoring', 'Penetration testing & red team exercises', 'Automated remediation workflows', 'ForgeComply 360 compliance integration'],
   },
 ];
 
@@ -29,25 +38,37 @@ export default function TwoPillars() {
       <div className="max-w-[1280px] mx-auto">
         <SectionHeading
           label="What We Do"
-          title="Two Capabilities. One Trusted Partner."
-          subtitle="Most firms do compliance or development. We do both — which means your applications and your authorization packages are built by teams that actually talk to each other."
+          title="Three Capabilities. One Trusted Partner."
+          subtitle="Most firms specialize in one discipline. We bring compliance, architecture, and offensive security under one roof — which means your security program is built by teams that actually work together."
           align="center"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1080px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 max-w-[1280px] mx-auto">
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="bg-gray-50 border border-gray-200 rounded-2xl p-10 transition-all hover:border-teal-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1"
+              className="bg-gray-50 border border-gray-200 rounded-2xl p-9 transition-all hover:border-teal-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1"
             >
-              <div className={`w-14 h-14 rounded-[14px] flex items-center justify-center mb-6 ${pillar.color === 'teal' ? 'bg-teal-500/15' : 'bg-blue-500/15'}`}>
-                <pillar.icon className={`w-7 h-7 ${pillar.color === 'teal' ? 'text-teal-500' : 'text-blue-500'}`} />
+              <div className={`w-14 h-14 rounded-[14px] flex items-center justify-center mb-6 ${
+                pillar.color === 'teal' ? 'bg-teal-500/15' :
+                pillar.color === 'blue' ? 'bg-blue-500/15' :
+                'bg-red-500/15'
+              }`}>
+                <pillar.icon className={`w-7 h-7 ${
+                  pillar.color === 'teal' ? 'text-teal-500' :
+                  pillar.color === 'blue' ? 'text-blue-500' :
+                  'text-red-500'
+                }`} />
               </div>
-              <h3 className="text-2xl font-bold text-navy-700 mb-3">{pillar.title}</h3>
-              <p className="text-[15px] text-gray-500 leading-relaxed mb-6">{pillar.description}</p>
+              <h3 className="text-xl font-bold text-navy-700 mb-3">{pillar.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">{pillar.description}</p>
               <ul className="space-y-2.5 mb-8">
                 {pillar.highlights.map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <div className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${pillar.color === 'teal' ? 'bg-teal-500' : 'bg-blue-500'}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${
+                      pillar.color === 'teal' ? 'bg-teal-500' :
+                      pillar.color === 'blue' ? 'bg-blue-500' :
+                      'bg-red-500'
+                    }`} />
                     {item}
                   </li>
                 ))}

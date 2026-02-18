@@ -38,7 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
-        heading: 'Forge Personnel',
+        heading: 'Forge Cyber Defense Personnel',
         items: [
           { label: 'ISSO Consultant', href: '/services/isso-consultant' },
           { label: 'Senior ISSO / RMF Lead', href: '/services/senior-isso-rmf' },
