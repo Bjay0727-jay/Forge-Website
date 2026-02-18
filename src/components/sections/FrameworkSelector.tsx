@@ -200,7 +200,7 @@ export default function FrameworkSelector() {
             Which Compliance Framework Do You Need?
           </h2>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-            Select a framework below to learn about requirements, timelines, and how Forge can help
+            Select a framework below to learn about requirements, timelines, and how Forge Cyber Defense can help
             you achieve authorization.
           </p>
         </div>

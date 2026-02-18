@@ -32,7 +32,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Forge Personnel</h4>
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Forge Cyber Defense Personnel</h4>
             <ul className="space-y-3 list-none p-0">
               {FOOTER_LINKS.personnel.map((link) => (
                 <li key={link.href}><Link href={link.href} className="text-sm text-gray-500 no-underline hover:text-teal-400 transition-colors">{link.label}</Link></li>
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-600">&copy; {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.</p>
-          <p className="text-xs text-gray-600">Security Compliance &amp; Application Development</p>
+          <p className="text-xs text-teal-500/70 font-semibold tracking-wide">{COMPANY.tagline}</p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StickyCTA from "@/components/layout/StickyCTA";
 
 const inter = Inter({
   variable: "--font-body",
@@ -21,11 +22,11 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://forgecyberdefense.com"),
   title: {
-    default: "Forge Cyber Defense | Security Compliance & Application Development",
+    default: "Forge Cyber Defense | Security Forged. Trust Proven.",
     template: "%s | Forge Cyber Defense",
   },
   description:
-    "Forge Cyber Defense delivers comprehensive security compliance consulting and secure application development for federal agencies, healthcare organizations, financial institutions, and commercial enterprises. Veteran-owned.",
+    "Security Forged. Trust Proven. Forge Cyber Defense delivers security compliance consulting and secure application development for federal agencies, healthcare, defense, and commercial enterprises. Veteran-owned.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -56,6 +57,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <Navbar />
+        <StickyCTA />
         <main id="main-content">{children}</main>
         <Footer />
       </body>

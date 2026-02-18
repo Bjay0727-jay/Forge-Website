@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAV_ITEMS } from '@/lib/constants';
 
 export default function Navbar() {
@@ -63,10 +63,7 @@ export default function Navbar() {
                 </div>
               );
             })}
-            <Link href="/portal" className="text-white/60 no-underline text-sm font-medium px-4 py-2 rounded-md transition-all hover:text-white hover:bg-white/10 flex items-center gap-1.5">
-              <Shield className="w-3.5 h-3.5" />Portal
-            </Link>
-            <Link href="/contact" className="ml-2 bg-teal-500 text-white no-underline text-sm font-semibold px-6 py-2.5 rounded-lg transition-all hover:bg-teal-600">Get Started</Link>
+            <Link href="/contact" className="ml-2 bg-teal-500 text-white no-underline text-sm font-semibold px-6 py-2.5 rounded-lg transition-all hover:bg-teal-600">Schedule a Consultation</Link>
           </div>
           <button className="lg:hidden bg-transparent border-none text-white cursor-pointer p-2" onClick={() => setIsMobileOpen(!isMobileOpen)} aria-label={isMobileOpen ? 'Close menu' : 'Open menu'} aria-expanded={isMobileOpen}>
             {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -102,9 +99,8 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <Link href="/portal" onClick={() => setIsMobileOpen(false)} className="block text-white/60 text-lg font-medium py-3 no-underline border-b border-white/10">Employee Portal</Link>
             <div className="pt-6">
-              <Link href="/contact" onClick={() => setIsMobileOpen(false)} className="block bg-teal-500 text-white text-center no-underline font-semibold py-3.5 rounded-lg hover:bg-teal-600 transition-colors">Get Started</Link>
+              <Link href="/contact" onClick={() => setIsMobileOpen(false)} className="block bg-teal-500 text-white text-center no-underline font-semibold py-3.5 rounded-lg hover:bg-teal-600 transition-colors">Schedule a Consultation</Link>
             </div>
           </div>
         </div>

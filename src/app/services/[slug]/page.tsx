@@ -25,7 +25,7 @@ export default async function ServicePage({ params }: PageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-20 px-8 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white pt-40 pb-24 px-8 relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern" />
         <div className="max-w-[1280px] mx-auto relative z-10">
           <Breadcrumbs items={[{ label: 'Services', href: '/services' }, { label: service.title }]} dark />
@@ -35,14 +35,14 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
       {service.stats && service.stats.length > 0 && (
-        <section className="py-12 px-8 bg-navy-800">
+        <section className="py-14 px-8 bg-navy-800">
           <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             {service.stats.map((stat) => (<StatBlock key={stat.label} value={stat.value} label={stat.label} />))}
           </div>
         </section>
       )}
       {service.features && service.features.length > 0 && (
-        <section className="py-24 px-8 bg-white">
+        <section className="py-28 px-8 bg-white">
           <div className="max-w-[1280px] mx-auto">
             <h2 className="text-3xl font-extrabold text-navy-700 tracking-tight mb-10">Key Capabilities</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -56,7 +56,7 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </section>
       )}
-      <section className="py-24 px-8 bg-gray-50">
+      <section className="py-28 px-8 bg-gray-50">
         <div className="max-w-[800px] mx-auto">
           <div className="prose prose-lg max-w-none prose-headings:text-navy-700 prose-headings:font-bold prose-a:text-teal-500 prose-strong:text-navy-800" dangerouslySetInnerHTML={{ __html: service.content }} />
         </div>

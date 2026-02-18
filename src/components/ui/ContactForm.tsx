@@ -10,11 +10,9 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqedaoko';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     organization: '',
-    service: '',
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -33,25 +31,17 @@ export default function ContactForm() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`,
+          name: formData.name,
           email: formData.email,
           organization: formData.organization || 'Not provided',
-          service: formData.service || 'Not specified',
           message: formData.message,
-          _subject: `New Contact: ${formData.firstName} ${formData.lastName} - ${formData.service || 'General Inquiry'}`,
+          _subject: `New Contact: ${formData.name} - General Inquiry`,
         }),
       });
 
       if (response.ok) {
         setStatus('success');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          organization: '',
-          service: '',
-          message: ''
-        });
+        setFormData({ name: '', email: '', organization: '', message: '' });
       } else {
         const data = await response.json();
         throw new Error(data.error || 'Form submission failed');
@@ -94,40 +84,21 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1.5">
-            First Name <span className="text-red-500">*</span>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Name <span className="text-red-500">*</span>
           </label>
           <input
-            id="firstName"
-            name="firstName"
+            id="name"
+            name="name"
             type="text"
             required
-            value={formData.firstName}
-            onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-800 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"
-            placeholder="First name"
+            placeholder="Your name"
             disabled={status === 'submitting'}
           />
         </div>
-        <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1.5">
-            Last Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            required
-            value={formData.lastName}
-            onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-800 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"
-            placeholder="Last name"
-            disabled={status === 'submitting'}
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
             Email <span className="text-red-500">*</span>
@@ -144,55 +115,22 @@ export default function ContactForm() {
             disabled={status === 'submitting'}
           />
         </div>
-        <div>
-          <label htmlFor="org" className="block text-sm font-medium text-gray-700 mb-1.5">
-            Organization
-          </label>
-          <input
-            id="org"
-            name="organization"
-            type="text"
-            value={formData.organization}
-            onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-800 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"
-            placeholder="Your company"
-            disabled={status === 'submitting'}
-          />
-        </div>
       </div>
 
       <div>
-        <label htmlFor="svc" className="block text-sm font-medium text-gray-700 mb-1.5">
-          Service Interest
+        <label htmlFor="org" className="block text-sm font-medium text-gray-700 mb-1.5">
+          Organization
         </label>
-        <select
-          id="svc"
-          name="service"
-          value={formData.service}
-          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+        <input
+          id="org"
+          name="organization"
+          type="text"
+          value={formData.organization}
+          onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
           className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-800 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"
+          placeholder="Your company"
           disabled={status === 'submitting'}
-        >
-          <option value="">Select a service</option>
-          <optgroup label="Security Compliance">
-            <option value="FedRAMP Authorization">FedRAMP Authorization</option>
-            <option value="FISMA / RMF Compliance">FISMA / RMF Compliance</option>
-            <option value="CMMC 2.0 Certification">CMMC 2.0 Certification</option>
-            <option value="HIPAA Security">HIPAA Security</option>
-            <option value="SOC 2 / ISO 27001">SOC 2 / ISO 27001</option>
-            <option value="ISSO Consulting">ISSO Consulting</option>
-          </optgroup>
-          <optgroup label="Application Development">
-            <option value="Custom SaaS Platform">Custom SaaS Platform</option>
-            <option value="Government Portal">Government Portal</option>
-            <option value="Compliance Platform">Compliance Platform</option>
-            <option value="Enterprise Web Application">Enterprise Web Application</option>
-            <option value="Mobile Application">Mobile Application</option>
-            <option value="API Development">API Development</option>
-          </optgroup>
-          <option value="Compliance + Development">Compliance + Development</option>
-          <option value="Other / General Inquiry">Other / Not Sure</option>
-        </select>
+        />
       </div>
 
       <div>
@@ -231,7 +169,7 @@ export default function ContactForm() {
         }
         disabled={status === 'submitting'}
       >
-        {status === 'submitting' ? 'Sending...' : 'Send Message'}
+        {status === 'submitting' ? 'Sending...' : 'Schedule a Consultation'}
       </Button>
 
       <p className="text-xs text-gray-500 text-center">

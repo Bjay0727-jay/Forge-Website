@@ -3,8 +3,8 @@ import { NavItem } from '@/types';
 export const COMPANY = {
   name: 'Forge Cyber Defense',
   legalName: 'Forge Cyber Defense, LLC',
-  tagline: 'Security Compliance & Application Development',
-  description: 'Security compliance consulting and secure application development for organizations that can\'t afford to get security wrong.',
+  tagline: 'Security Forged. Trust Proven.',
+  description: 'Security compliance consulting and secure application development — built by veterans who understand that compliance isn\'t a checkbox. It\'s proof.',
   email: 'info@forgecyberdefense.com',
   phone: '(469) 404-3899',
   address: '7950 Legacy Dr Suite 400',
@@ -12,6 +12,12 @@ export const COMPANY = {
   location: 'Plano, TX (DFW Metro)',
   status: 'Veteran-Owned',
   url: 'https://forgecyberdefense.com',
+};
+
+export const FORGECOMPLY = {
+  name: 'ForgeComply 360',
+  tagline: 'Compliance Isn\'t a Dashboard. It\'s Proof.',
+  description: 'Continuous monitoring infrastructure with validated control assurance across risk, compliance, and trust.',
 };
 
 export const NAV_ITEMS: NavItem[] = [
@@ -32,7 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
-        heading: 'Forge Personnel',
+        heading: 'Forge Cyber Defense Personnel',
         items: [
           { label: 'ISSO Consultant', href: '/services/isso-consultant' },
           { label: 'Senior ISSO / RMF Lead', href: '/services/senior-isso-rmf' },
@@ -43,6 +49,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Knowledge Hub', href: '/knowledge' },
+  { label: 'Products', href: '/products/forgecomply-360' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -63,6 +70,7 @@ export const FOOTER_LINKS = {
     { label: 'FedRAMP Specialist', href: '/services/fedramp-specialist' },
   ],
   company: [
+    { label: 'ForgeComply 360™', href: '/products/forgecomply-360' },
     { label: 'About Us', href: '/about' },
     { label: 'Knowledge Hub', href: '/knowledge' },
     { label: 'Contact', href: '/contact' },
