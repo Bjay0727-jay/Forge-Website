@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="bg-navy-900 text-gray-400 pt-16 pb-8">
       <div className="max-w-[1280px] mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          <div className="lg:col-span-1">
-            <Image src="/logos/forge-original-128px.png" alt="Forge Cyber Defense" width={280} height={80} className="h-20 w-auto mb-5" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
+          <div className="lg:col-span-2">
+            <Image src="/logos/forge-logo-highres.png" alt="Forge Cyber Defense" width={640} height={210} className="h-[180px] w-auto mb-5" />
             <p className="text-sm leading-relaxed text-gray-500 mb-5">{COMPANY.description}</p>
             <div className="flex items-center gap-2 mb-3">
               <Shield className="w-4 h-4 text-teal-500" />

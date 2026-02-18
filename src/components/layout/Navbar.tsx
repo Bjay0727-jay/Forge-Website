@@ -26,16 +26,16 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-navy-700/[0.98] shadow-[0_4px_30px_rgba(0,0,0,0.3)]' : 'bg-navy-700/95'} backdrop-blur-xl border-b border-white/[0.08]`} aria-label="Main navigation">
-        <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[110px]">
+        <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between h-[180px]">
           <Link href="/" className="flex items-center no-underline" aria-label="Forge Cyber Defense - Home">
-            <Image src="/logos/forge-original-128px.png" alt="Forge Cyber Defense" width={320} height={96} priority className="h-24 w-auto" />
+            <Image src="/logos/forge-logo-highres.png" alt="Forge Cyber Defense" width={640} height={210} priority className="h-[180px] w-auto" />
           </Link>
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {NAV_ITEMS.map((item) => {
               const hasDropdown = item.groups || item.children;
               return (
                 <div key={item.label} className="relative" onMouseEnter={() => hasDropdown ? setActiveDropdown(item.label) : undefined} onMouseLeave={() => setActiveDropdown(null)}>
-                  <Link href={item.href} className="text-white/80 no-underline text-sm font-medium px-4 py-2 rounded-md transition-all hover:text-white hover:bg-white/10 flex items-center gap-1">
+                  <Link href={item.href} className="text-white/80 no-underline text-[15px] font-medium px-5 py-2.5 rounded-md transition-all hover:text-white hover:bg-white/10 flex items-center gap-1.5">
                     {item.label}
                     {hasDropdown && <ChevronDown className="w-3.5 h-3.5" />}
                   </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
                 </div>
               );
             })}
-            <Link href="/contact" className="ml-2 bg-teal-500 text-white no-underline text-sm font-semibold px-6 py-2.5 rounded-lg transition-all hover:bg-teal-600">Schedule a Consultation</Link>
+            <Link href="/contact" className="ml-3 bg-teal-500 text-white no-underline text-[15px] font-semibold px-7 py-3 rounded-lg transition-all hover:bg-teal-600">Schedule a Consultation</Link>
           </div>
           <button className="lg:hidden bg-transparent border-none text-white cursor-pointer p-2" onClick={() => setIsMobileOpen(!isMobileOpen)} aria-label={isMobileOpen ? 'Close menu' : 'Open menu'} aria-expanded={isMobileOpen}>
             {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -71,7 +71,7 @@ export default function Navbar() {
         </div>
       </nav>
       {isMobileOpen && (
-        <div className="fixed inset-0 z-40 bg-navy-900/95 backdrop-blur-xl pt-[110px] overflow-y-auto lg:hidden">
+        <div className="fixed inset-0 z-40 bg-navy-900/95 backdrop-blur-xl pt-[180px] overflow-y-auto lg:hidden">
           <div className="px-6 py-8 space-y-2">
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
